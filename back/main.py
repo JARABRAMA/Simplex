@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from algorithms import GranM
+from src.algorithms import GranM
 
 app = FastAPI()
 
