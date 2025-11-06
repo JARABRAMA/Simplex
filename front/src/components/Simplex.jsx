@@ -24,7 +24,7 @@ export function Simplex() {
   const [solution, setSolution] = useState(null);
   const [type, setType] = useState(mapType.max);
 
-  const apiUrl = import.meta.env.VITE_API_URL;
+  const apiUrl = "//upper-perla-jarabrma-b3cec131.koyeb.app";
 
   const refMatrix = useRef();
   const refObjetiveFunction = useRef();
