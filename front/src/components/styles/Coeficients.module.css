@@ -1,0 +1,17 @@
+.objetiveFunction {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 20px;
+
+    input {
+        width: 100px;
+    }
+}
+
+.objetiveFunction div {
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}

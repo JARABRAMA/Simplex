@@ -1,0 +1,58 @@
+.matrix {
+  gap: 12px;
+  justify-items: center;
+  align-items: center;
+}
+
+.eqSelector {
+  appearance: none;
+  -webkit-appearance: none; /* Safari y Chrome */
+  -moz-appearance: none; /* Firefox */
+  background: none;
+  background-color: var(--secondary-container-color);
+  color: var(--txt-color);
+  padding: 10px 8px;
+  border: none; /* deja espacio por si había flecha */
+  border-radius: 4px;
+  font-size: 18px;
+  transition-duration: 0.3s;
+  border: solid 1px var(--atenuated-txt-color);
+
+  &:hover {
+    transform: scale(1.05);
+    background: var(--secondary-container-color);
+  }
+}
+
+.variables {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 12px;
+}
+
+.matrix input {
+  width: 80%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.independients {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.independients div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 12px;
+
+  input {
+    width: 80%;
+  }
+}

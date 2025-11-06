@@ -1,0 +1,66 @@
+:root {
+  --bg-color: rgb(19, 19, 20);
+  --primary-container-color: rgb(30, 31, 32);
+  --secondary-container-color: rgb(40, 42, 44);
+  --txt-color: rgb(227, 227, 227);
+  --atenuated-txt-color: rgb(197, 197, 197);
+}
+
+#root {
+  margin: 0;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--txt-color);
+}
+
+button {
+  font-family: "Inter", sans-serif;
+  background: var(--primary-container-color);
+  color: var(--txt-color);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition-duration: 0.3s;
+
+  &:hover {
+    background: var(--secondary-container-color);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  background: transparent;
+  color: var(--atenuated-txt-color);
+  padding: 8px 10px;
+  border: solid 1px var(--atenuated-txt-color);
+  border-radius: 8px;
+  transition-duration: 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+    background: var(--secondary-container-color);
+  }
+}
+
+form {
+  margin: 25px 0;
+}

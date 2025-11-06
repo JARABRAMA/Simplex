@@ -1,0 +1,28 @@
+:root {
+    --primary-color: rgb(6, 95, 179);
+}
+
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 5px 10px;
+    margin: 0px 10px;
+    border-bottom: solid 1px white;
+}
+
+
+.title {
+    display: flex;
+    gap: 8px;
+    align-items: end;
+    font-size: 28px;
+
+    svg {
+        height: auto;
+        width: 45px;
+        color: var(--primary-color);
+    }
+}

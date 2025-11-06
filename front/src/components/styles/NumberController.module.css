@@ -1,0 +1,57 @@
+:root {
+    --bg-color: rgb(19, 19, 20);
+    --primary-container-color: rgb(30, 31, 32);
+    --secondary-container-color: rgb(40, 42, 44);
+    --txt-color: rgb(227, 227, 227);
+    --atenuated-txt-color: rgb(197, 197, 197);
+}
+
+.controlls {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+
+
+    button {
+        padding: 5px;
+        border: solid 1px var(--atenuated-txt-color);
+        background-color: rgb(39, 40, 41);
+        box-sizing: border-box;
+
+
+        &:hover {
+            background-color: var(--primary-color);
+            border: none
+        }
+    }
+
+    svg {
+        height: 25px;
+        width: 25px;
+    }
+
+
+
+}
+
+.value {
+    height: fit-content;
+    font-size: 28px;
+    padding: 5px 12px;
+    background: var(--primary-color);
+    border-radius: 5px;
+}
+
+.container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 5px;
+
+    h4 {
+        margin: 10px 0;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+    }
+}
