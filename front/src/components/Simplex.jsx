@@ -24,6 +24,8 @@ export function Simplex() {
   const [solution, setSolution] = useState(null);
   const [type, setType] = useState(mapType.max);
 
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   const refMatrix = useRef();
   const refObjetiveFunction = useRef();
 
@@ -60,13 +62,16 @@ export function Simplex() {
 
     console.log("[Simplex Problem] problem: ", problem);
 
-    const response = await fetch("http://127.0.0.1:8000/simplex", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(problem),
-    });
+    const response = await fetch(
+      `${apiUrl || "http://localhost:8000"}/simplex`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(problem),
+      }
+    );
 
     const data = await response.json();
 
