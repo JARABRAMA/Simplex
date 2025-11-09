@@ -1,4 +1,5 @@
 import styles from "./styles/Table.module.css";
+import { formatNumber } from "../utils";
 
 export function Table({ iteration }) {
   console.log(iteration);
@@ -22,7 +23,7 @@ export function Table({ iteration }) {
       <main>
         <div className={styles.row}>
           {variables.map((value) => {
-            return <span className={styles.cell}>{value}</span>;
+            return <span className={styles.cell}>{formatNumber(value)}</span>;
           })}
         </div>
 
@@ -30,7 +31,9 @@ export function Table({ iteration }) {
           return (
             <div className={styles.row} key={index}>
               {row.map((value) => {
-                return <span className={styles.cell}>{value.toFixed(3)}</span>;
+                return (
+                  <span className={styles.cell}>{formatNumber(value)}</span>
+                );
               })}
             </div>
           );
@@ -40,7 +43,7 @@ export function Table({ iteration }) {
         <span>Cj - Zj</span>
         <div className={styles.footerRow}>
           {footerRow.map((value, index) => {
-            return <span key={index}>{value}</span>;
+            return <span key={index}>{formatNumber(value)}</span>;
           })}
         </div>
       </footer>
