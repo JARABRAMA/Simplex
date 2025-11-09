@@ -4,6 +4,7 @@ import { SimplexSolution } from "./SimplexSolution";
 import { SimplexProblem } from "./SimplexProblem";
 import matrixStyles from "./styles/Matrix.module.css";
 import objetiveStyles from "./styles/Coeficients.module.css";
+import { SimplexDialog } from "./LoadingDialog";
 
 const mapType = {
   max: "max",
@@ -23,6 +24,8 @@ export function Simplex() {
   const [equations, setEquations] = useState(2);
   const [solution, setSolution] = useState(null);
   const [type, setType] = useState(mapType.max);
+  const refDialog = useRef();
+  const [error, setError] = useState(null);
 
   const refMatrix = useRef();
   const refObjetiveFunction = useRef();
@@ -30,6 +33,7 @@ export function Simplex() {
   const apiUrl = import.meta.env.VITE_API_URL;
 
   const handleGetMatrixInputs = async () => {
+    refDialog.current.showModal();
     const matrixList = Array.from(
       refMatrix.current.querySelectorAll(`.${matrixStyles.matrix} input`)
     ).map((input) => Number(input.value || 0));
@@ -62,21 +66,27 @@ export function Simplex() {
 
     console.log("[Simplex Problem] problem: ", problem);
 
-    const response = await fetch(
-      `${apiUrl || "http://localhost:8000"}/simplex`,
-      {
+    try {
+      const url = `${apiUrl}/simplex`;
+      const options = {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(problem),
+      };
+
+      const res = await fetch(url, options);
+
+      if (!res.ok) {
+        throw new Error(`response error http staatus: ${res.status}`);
       }
-    );
 
-    const data = await response.json();
+      const data = await res.json();
 
-    console.log("[simplex] data: ", data);
-    setSolution(data);
+      setSolution(data);
+      refDialog.current.close();
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   const handleToggleType = () => {
@@ -104,6 +114,15 @@ export function Simplex() {
           }}
         />
       )}
+      <dialog ref={refDialog}>
+        <SimplexDialog
+          error={error}
+          handleClearError={() => {
+            refDialog.current.close();
+            setError(null);
+          }}
+        />
+      </dialog>
     </>
   );
 }

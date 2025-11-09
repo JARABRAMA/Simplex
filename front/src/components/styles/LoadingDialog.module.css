@@ -1,0 +1,7 @@
+:root {
+  --error-color: #f99090;
+}
+
+.isError {
+  color: var(--error-color);
+}

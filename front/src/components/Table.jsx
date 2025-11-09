@@ -15,24 +15,34 @@ export function Table({ iteration }) {
           <span>Variables Basicas</span>
           <div>
             {iteration.basicas.map((variable) => {
-              return <span className={styles.cell}>{variable}</span>;
+              return (
+                <span key={variable} className={styles.cell}>
+                  {variable}
+                </span>
+              );
             })}
           </div>
         </small>
       </header>
       <main>
         <div className={styles.row}>
-          {variables.map((value) => {
-            return <span className={styles.cell}>{formatNumber(value)}</span>;
+          {variables.map((value, index) => {
+            return (
+              <span key={index} className={styles.cell}>
+                {formatNumber(value)}
+              </span>
+            );
           })}
         </div>
 
         {values.map((row, index) => {
           return (
             <div className={styles.row} key={index}>
-              {row.map((value) => {
+              {row.map((value, index) => {
                 return (
-                  <span className={styles.cell}>{formatNumber(value)}</span>
+                  <span key={index} className={styles.cell}>
+                    {formatNumber(value)}
+                  </span>
                 );
               })}
             </div>
