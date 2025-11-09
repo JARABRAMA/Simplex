@@ -1,4 +1,5 @@
 import styles from "./styles/Solution.module.css";
+import { formatNumber } from "../utils";
 
 export function Solution({ solution, z }) {
   return (
@@ -13,7 +14,7 @@ export function Solution({ solution, z }) {
         <span> = </span>
         <div className={styles.vector}>
           {solution.map((value, index) => {
-            return <span key={index}>{value.toFixed(3)}</span>;
+            return <span key={index}>{formatNumber(value)}</span>;
           })}
         </div>
       </section>

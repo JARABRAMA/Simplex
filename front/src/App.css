@@ -65,6 +65,31 @@ form {
   margin: 25px 0;
 }
 
-section {
-  border-bottom: solid 1px white;
+dialog {
+  border: none;
+  border-radius: 12px;
+  background: var(--secondary-container-color);
+  color: var(--atenuated-txt-color);
+
+  h3 {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 12px;
+  }
+
+  svg {
+    height: auto;
+    width: 45px;
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  button {
+    background: var(--primary-color);
+  }
 }
