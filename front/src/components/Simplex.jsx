@@ -29,8 +29,6 @@ export function Simplex() {
 
   const apiUrl = import.meta.env.VITE_API_URL;
 
-  console.log("api url", apiUrl);
-
   const handleGetMatrixInputs = async () => {
     const matrixList = Array.from(
       refMatrix.current.querySelectorAll(`.${matrixStyles.matrix} input`)
