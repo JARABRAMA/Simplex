@@ -21,10 +21,15 @@ export function SimplexProblem({
 }) {
   const buttonText = mapTypeButton[type];
   return (
-    <section>
+    <section className={styles.problemContainer}>
       <h1>Método Simplex Gran M</h1>
 
-      <span>Ingresa tu problema aquí</span>
+      <p>
+        Esta página te permite ingresar un problema de programación lineal y
+        resolverlo paso a paso usando el método Simplex con Gran M. Solo pones
+        tus datos y el sistema construye las tablas y muestra la solución
+        óptima.
+      </p>
 
       <form>
         <button
@@ -39,7 +44,7 @@ export function SimplexProblem({
         <fieldset className={styles.length}>
           <legend>Longitud del Problema</legend>
           <NumberController
-            title={"Número de Ecuaciones"}
+            title={"Número de Restricciones"}
             value={equations}
             onIncrease={(event) => {
               event.preventDefault();
