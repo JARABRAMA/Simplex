@@ -31,6 +31,7 @@ export function Simplex() {
   const refObjetiveFunction = useRef();
 
   const apiUrl = import.meta.env.VITE_API_URL;
+  console.log("api url: ", apiUrl);
 
   const handleGetMatrixInputs = async () => {
     refDialog.current.showModal();
