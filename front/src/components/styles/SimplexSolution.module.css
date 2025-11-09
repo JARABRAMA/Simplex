@@ -4,3 +4,14 @@
   gap: 20px;
   justify-content: space-around;
 }
+
+.clearButton {
+  margin: 25px 0px;
+  background-color: var(--primary-color);
+  align-self: end;
+}
+
+.solutionSection {
+  display: flex;
+  flex-flow: column nowrap;
+}

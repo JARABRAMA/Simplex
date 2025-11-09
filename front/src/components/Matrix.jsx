@@ -18,7 +18,7 @@ export function Matrix({ equations, variables, refMatrix }) {
       <div>
         <div className={styles.variables}>
           {vars.map((index) => {
-            return <span>x{index}</span>;
+            return <span key={index}>x{index}</span>;
           })}
         </div>
 

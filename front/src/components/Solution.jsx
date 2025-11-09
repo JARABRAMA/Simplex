@@ -7,10 +7,10 @@ export function Solution({ solution, z }) {
       <section className={styles.solutionContainer}>
         <div className={styles.vector}>
           {solution.map((_, index) => {
-            return <span key={index}>x{index}</span>;
+            return <span key={index}>x{index + 1}</span>;
           })}
         </div>
-        <span>=</span>
+        <span> = </span>
         <div className={styles.vector}>
           {solution.map((value, index) => {
             return <span key={index}>{value.toFixed(3)}</span>;

@@ -5,7 +5,7 @@ import { Solution } from "./Solution";
 export function SimplexSolution({ result, onClearSolution }) {
   console.log(result.historial);
   return (
-    <section>
+    <section className={styles.solutionSection}>
       <Solution solution={result.solucion} z={result.Z} />
 
       <main className={styles.container}>
@@ -14,7 +14,9 @@ export function SimplexSolution({ result, onClearSolution }) {
         })}
       </main>
 
-      <button onClick={onClearSolution}>Limpiar</button>
+      <button className={styles.clearButton} onClick={onClearSolution}>
+        Limpiar
+      </button>
     </section>
   );
 }
