@@ -28,10 +28,6 @@ export function Simplex() {
   const refObjetiveFunction = useRef();
 
   const apiUrl = import.meta.env.VITE_API_URL;
-  const password = import.meta.env.VITE_PASSWORD;
-  console.log("contrasena", password);
-
-  console.log("api url", apiUrl);
 
   const handleGetMatrixInputs = async () => {
     const matrixList = Array.from(
