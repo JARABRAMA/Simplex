@@ -9,8 +9,8 @@ export function SimplexSolution({ result, onClearSolution }) {
       <Solution solution={result.solucion} z={result.Z} />
 
       <main className={styles.container}>
-        {result.historial.map((iter) => {
-          return <Table key={iter.iteracion} iteration={iter} />;
+        {result.historial.map((iter, index) => {
+          return <Table key={index} iteration={iter} />;
         })}
       </main>
 

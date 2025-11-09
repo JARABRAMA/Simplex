@@ -49,6 +49,11 @@ section {
   section {
     max-width: 1200px;
   }
+
+  .problemContainer p {
+    width: 80%;
+    color: var(--atenuated-txt-color);
+  }
 }
 
 fieldset {
