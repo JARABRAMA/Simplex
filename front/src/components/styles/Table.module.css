@@ -3,7 +3,8 @@
   flex-flow: column nowrap;
   background: #dbdbdb;
   color: black;
-  padding: 18px;
+  padding: 18px 30px;
+  width: max-content;
   border-radius: 12px;
   align-items: center;
 
@@ -44,9 +45,16 @@
 }
 
 .cell {
+  display: flex;
   padding: 10px;
   width: 40px;
   height: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.basicVariablesRow {
+  display: flex;
 }
 
 .row {

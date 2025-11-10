@@ -40,8 +40,6 @@
 section {
   padding: 30px;
   max-width: 80%;
-  margin: auto;
-
   background: var(--primary-container-color);
 }
 
