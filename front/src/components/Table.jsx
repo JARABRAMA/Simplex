@@ -13,7 +13,7 @@ export function Table({ iteration }) {
 
         <small>
           <span>Variables Basicas</span>
-          <div>
+          <div className={styles.basicVariablesRow}>
             {iteration.basicas.map((variable) => {
               return (
                 <span key={variable} className={styles.cell}>

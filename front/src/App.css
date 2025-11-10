@@ -93,3 +93,9 @@ dialog {
     background: var(--primary-color);
   }
 }
+
+section {
+  min-width: fit-content;
+  margin: 20px;
+  border-radius: 12px;
+}
