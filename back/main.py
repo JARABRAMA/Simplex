@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from src.algorithms import GranM
+from src.mapper import map_solution
 
 app = FastAPI()
 
@@ -28,23 +29,7 @@ async def resolver_simplex(data: dict):
     tipo_obj = data.get("type", "max")
 
     modelo = GranM(c, A, b, tipo_restr, tipo_obj)
-    solucion, Z, historial = modelo.resolver()
+    solucion, Z, historial, grafica = modelo.resolver()
+    
+    return map_solution(historial, solucion, Z, grafica)
 
-    # Convertir la solución a listas JSON-friendly
-    historial_serializado = []
-    for paso in historial:
-        paso_serializado = {
-            "iteracion": paso["iteracion"],
-            "descripcion": paso["descripcion"],
-            "tabla": paso["tabla"].to_dict(orient="records"),
-            "Zj": paso["Zj"].tolist(),
-            "Cj": paso["Cj"].tolist(),
-            "basicas": paso["basicas"],
-        }
-        historial_serializado.append(paso_serializado)
-
-    return {
-        "solucion": solucion.tolist(),
-        "Z": float(Z),
-        "historial": historial_serializado,
-    }
