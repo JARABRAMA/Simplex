@@ -20,6 +20,7 @@
   border-radius: 12px;
   gap: 18px;
   align-items: center;
+  font-family: "JetBrains Mono", monospace;
 
   h4 {
     align-self: center;
@@ -37,4 +38,55 @@
   align-items: center;
   padding: 0;
   width: 200px;
+}
+
+.solutionSection {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.solutionSection img {
+  background: white;
+  width: 500px;
+  height: auto;
+  padding: 8px 0;
+  border-radius: 8px;
+}
+
+.notacionCard {
+  h4 {
+    font-size: 18px;
+    margin: 0 0 12px 0;
+  }
+
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  background-color: var(--txt-color);
+  color: var(--bg-color);
+}
+
+.notacionCard div {
+  display: grid;
+  align-content: center;
+  gap: 1rem;
+  grid-template-columns: 4fr 1fr;
+}
+
+.notacionCard div span {
+  text-align: center;
+  width: 100%;
+  background: var(--primary-color);
+  padding: 8px 5px;
+  color: white;
+  border-radius: 8px;
+}
+
+.notacionCard .notacionCardSpan {
+  font-family: "JetBrains Mono", monospace;
+  background-color: #1e1f20;
+  color: white;
 }

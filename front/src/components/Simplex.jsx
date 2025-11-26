@@ -97,8 +97,8 @@ export function Simplex() {
     <>
       <SimplexProblem
         equations={equations}
-        setEquations={setEquations}
-        setVariables={setVariables}
+        setEquations={(equations) => setEquations(equations)}
+        setVariables={(variables) => setVariables(variables)}
         variables={variables}
         refMatrix={refMatrix}
         refObjetiveFunction={refObjetiveFunction}

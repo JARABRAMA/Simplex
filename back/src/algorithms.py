@@ -229,12 +229,8 @@ class GranM:
         plt.title("Método gráfico aplicado automáticamente (solo 2 variables)")
         plt.grid(True)
         plt.legend()
-        plt.savefig(self.get_path())
-        return self.get_path()
-
-    def get_path(self): 
-        path = Path.home()
-        return f'{path}\\images\\grafica.png'
+        plt.savefig('../front/public/images/grafica.png')
+        return '../../public/images/grafica.png'
 
     def resolver(self):
         """

@@ -4,9 +4,14 @@ import { Solution } from "./Solution";
 
 export function SimplexSolution({ result, onClearSolution }) {
   console.log(result.historial);
+  console.log(result.grafica);
   return (
     <section className={styles.solutionSection}>
-      <Solution solution={result.solucion} z={result.Z} />
+      <Solution
+        solution={result.solucion}
+        z={result.Z}
+        graphic={result.grafica}
+      />
 
       <main className={styles.container}>
         {result.historial.map((iter, index) => {
