@@ -1,5 +1,5 @@
 def map_solution(historial: list, solucion: list, Z: float, grafica: str) -> dict:
-    serialized_historial = [] 
+    serialized_historial = []
     for paso in historial:
         paso_serializado = {
             "iteracion": paso["iteracion"],
@@ -11,24 +11,20 @@ def map_solution(historial: list, solucion: list, Z: float, grafica: str) -> dic
         }
         serialized_historial.append(paso_serializado)
 
-    if grafica:     
+    if grafica:
         return {
-            'solucion': solucion.tolist(),
-            'Z': Z,
-            'historial': serialized_historial,
-            'grafica': grafica
-    }
-    
-    return {
-        'solucion': solucion.tolist(),
-        'Z': Z,
-        'historial': serialized_historial
-    }
+            "solucion": solucion.tolist(),
+            "Z": Z,
+            "historial": serialized_historial,
+            "grafica": grafica,
+        }
 
+    return {"solucion": solucion.tolist(), "Z": Z, "historial": serialized_historial}
 
 
 if __name__ == "__main__":
-    from algorithms import GranM
+    from granm import GranM
+
     # Ejemplo de uso con dos variables
     c = [3, 5]
     A = [[2, 3], [2, 1]]

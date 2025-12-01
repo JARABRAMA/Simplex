@@ -229,8 +229,8 @@ class GranM:
         plt.title("Método gráfico aplicado automáticamente (solo 2 variables)")
         plt.grid(True)
         plt.legend()
-        plt.savefig('../front/public/images/grafica.png')
-        return '../../public/images/grafica.png'
+        plt.savefig("../front/public/images/grafica.png")
+        return "../../public/images/grafica.png"
 
     def resolver(self):
         """
@@ -304,7 +304,12 @@ class GranM:
 
         # Graficación automática si el problema es de dos variables
         if len(self.c) == 2:
-            return solucion[: len(self.c)], Z_final, self.historial, self.graficar(solucion)
+            return (
+                solucion[: len(self.c)],
+                Z_final,
+                self.historial,
+                self.graficar(solucion),
+            )
 
         return solucion[: len(self.c)], Z_final, self.historial
 
