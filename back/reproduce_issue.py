@@ -43,6 +43,8 @@ def test_sensibility():
     result = analisis_sensibilidad(mapped_solution)
     print("\nRangos Factibilidad Keys:", result["rangos_factibilidad"].keys())
     print("Rangos Factibilidad:", result["rangos_factibilidad"])
+    print("\nPrecios Sombra Keys:", result["precios_sombra"].keys())
+    print("Precios Sombra:", result["precios_sombra"])
 
 if __name__ == "__main__":
     test_sensibility()

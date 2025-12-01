@@ -2,7 +2,7 @@ import { Table } from "./Table";
 import styles from "./styles/SimplexSolution.module.css";
 import { Solution } from "./Solution";
 import { useSolution } from "../hooks/useSolution";
-
+import { SimplexSensivility } from "./sensivility/SimplexSensivility";
 export function SimplexSolution() {
   const { isSolved } = useSolution();
 
@@ -12,6 +12,7 @@ export function SimplexSolution() {
     <section className={styles.solutionSection}>
       <Solution />
       <IterationsSolution />
+      <SimplexSensivility />
       <ClearSolutionButton />
     </section>
   );

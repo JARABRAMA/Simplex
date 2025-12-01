@@ -18,11 +18,33 @@ def analisis_sensibilidad(solucion):
     # COSTOS REDUCIDOS
     costos_reducidos = {var: Cj[i] - Zj[i] for i, var in enumerate(columnas)}
 
-    # PRECIOS SOMBRA (solo para variables de holgura)
+    # PRECIOS SOMBRA (asociados a restricciones)
     precios_sombra = {}
-    for i, var in enumerate(columnas):
-        if var.startswith("s"):
-            precios_sombra[var] = Zj[i] - Cj[i]
+    
+    # Iteramos sobre las restricciones para buscar su variable de holgura/artificial asociada
+    m = len(b)
+    for i in range(m):
+        var_s = f"s{i+1}"
+        var_a = f"a{i+1}"
+        
+        col_name = None
+        if var_s in columnas:
+            col_name = var_s
+        elif var_a in columnas:
+            col_name = var_a
+            
+        if col_name:
+            col_idx = columnas.index(col_name)
+            # El precio sombra es Zj - Cj para la variable de holgura/artificial inicial
+            # En maximización, si la variable está en la base, Zj-Cj = 0.
+            # Si no está en la base, Zj-Cj es el costo de oportunidad.
+            # Nota: La definición exacta de precio sombra puede variar en signo según el texto.
+            # Usualmente es el valor marginal de relajar la restricción.
+            # En la tabla óptima, para variables de holgura, suele ser Zj - Cj (o Cj - Zj dependiendo de la convención).
+            # El código original usaba Zj - Cj. Mantendremos eso.
+            precios_sombra[f"restriction_{i}"] = Zj[col_idx] - Cj[col_idx]
+        else:
+            precios_sombra[f"restriction_{i}"] = 0.0
 
     # RANGOS DE FACTIBILIDAD
     rangos_factibilidad = {}

@@ -94,7 +94,6 @@ export function useProblem() {
     handleGetMatrixInputs,
     handleToggleType,
     type,
-    setSolution,
     error,
     setError,
   };

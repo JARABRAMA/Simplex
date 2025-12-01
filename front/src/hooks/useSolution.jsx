@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-export const useSolution = create((set, store) => ({
+export const useSolution = create((set, get, store) => ({
   iterations: [],
   optimalValues: [],
   solutionValue: undefined,
@@ -14,11 +14,11 @@ export const useSolution = create((set, store) => ({
       optimalValues: result.solucion,
       solutionValue: result["Z"],
       graphic: result.grafica,
-      sensivility: result.sensibuilidad,
+      sensivility: result["sesibilidad"],
       isSolved: true,
     })),
 
   resetSolution: () => {
-    set(store.getInitialState);
+    set(store.getInitialState(), true);
   },
 }));
