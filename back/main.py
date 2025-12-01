@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from src.granm import GranM
 from src.mapper import map_solution
 from src.sensibility import analisis_sensibilidad
+from src.sensibility import clean_inf
 
 app = FastAPI()
 
@@ -35,7 +36,7 @@ async def resolver_simplex(data: dict):
     mapped_solution = map_solution(historial, solucion, Z, grafica)
 
     sensibilidad = analisis_sensibilidad(mapped_solution)
-
+    sensibilidad = clean_inf(sensibilidad)
     mapped_solution["sesibilidad"] = sensibilidad
 
     return mapped_solution
