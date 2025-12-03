@@ -30,3 +30,25 @@ export function getIncomingAndOutgoingBasicVariables(current, anterior) {
   const outgoing = anterior.find((variable) => !current.includes(variable));
   return { incoming, outgoing };
 }
+
+/**
+ * this function will return a list with the used resources
+ * @param {list[number]} solution: the solution vector
+ * @param {list[list[number]]} matrix: the matrix
+ * @returns {list[number]}: the used resources
+ */
+export function getUsedResources(solution, matrix) {
+  if (solution.length !== matrix.length) return null;
+
+  return matrix.map((row) => pointProduct(row, solution));
+}
+
+/**
+ * this function will return the point product of two vectors
+ * @param {list[number]} first: the first vector
+ * @param {list[number]} second: the second vector
+ * @returns {number}: the point product of the two vectors
+ */
+function pointProduct(first, second) {
+  return first.reduce((acc, value, index) => acc + value * second[index], 0);
+}

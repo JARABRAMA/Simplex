@@ -7,6 +7,7 @@ import matrixStyles from "../components/styles/Matrix.module.css";
 import objetiveStyles from "../components/styles/Coeficients.module.css";
 import { chunkArray } from "../utils";
 import { useSolution } from "./useSolution";
+import { useProblemStore } from "./useProblemStore";
 
 export function useProblem() {
   const [variables, setVariables] = useState(2);
@@ -14,6 +15,8 @@ export function useProblem() {
   const [type, setType] = useState(mapType.max);
   const refDialog = useRef();
   const [error, setError] = useState(null);
+
+  const { setProblem } = useProblemStore();
 
   const { setSolution } = useSolution();
 
@@ -53,6 +56,8 @@ export function useProblem() {
       restrictions: restrictions,
       type: type,
     };
+
+    setProblem(problem);
 
     console.log("[Simplex Problem] problem: ", problem);
 

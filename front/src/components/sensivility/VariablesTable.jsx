@@ -24,8 +24,48 @@ export function VariablesTable() {
           variables={variables}
           optimalityRages={sensivility["rangos_optimalidad"]}
         />
+        <MaxValueColumn
+          optimalValues={optimalValues}
+          optimalityRages={sensivility["rangos_optimalidad"]}
+          variables={variables}
+        />
+        <MinValueColumn
+          optimalValues={optimalValues}
+          optimalityRages={sensivility["rangos_optimalidad"]}
+          variables={variables}
+        />
       </div>
     </article>
+  );
+}
+
+function MaxValueColumn({ optimalValues, optimalityRages, variables }) {
+  const maxValues = variables.map((variable) =>
+    optimalityRages[variable] ? optimalityRages[variable].max : 0
+  );
+
+  return (
+    <div className={styles.column}>
+      <span>Valor Maximo</span>
+      {optimalValues.map((value, index) => (
+        <span key={index}>{value + maxValues[index]}</span>
+      ))}
+    </div>
+  );
+}
+
+function MinValueColumn({ optimalValues, optimalityRages, variables }) {
+  const minValues = variables.map((variable) =>
+    optimalityRages[variable] ? optimalityRages[variable].min : 0
+  );
+
+  return (
+    <div className={styles.column}>
+      <span>Valor Minimo</span>
+      {optimalValues.map((value, index) => (
+        <span key={index}>{value + minValues[index]}</span>
+      ))}
+    </div>
   );
 }
 
