@@ -70,6 +70,24 @@
   display: flex;
   align-items: center;
   padding: 5px;
-
   gap: 16px;
+}
+
+.tableCard small {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.incomingOutgoing {
+  display: flex;
+  background: var(--bg-color);
+  color: var(--atenuated-txt-color);
+  padding: 5px 8px;
+  border-radius: 5px;
+}
+
+.tableCard footer {
+  display: flex;
+  flex-direction: row;
 }

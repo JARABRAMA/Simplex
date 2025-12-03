@@ -6,6 +6,7 @@ export function Table({ iteration }) {
   const variables = Object.keys(iteration.tabla[0]);
   const values = iteration.tabla.map((row) => Object.values(row));
   const footerRow = iteration.Cj.map((cj, i) => cj - iteration.Zj[i]);
+
   return (
     <article className={styles.tableCard}>
       <header>
@@ -22,6 +23,13 @@ export function Table({ iteration }) {
               );
             })}
           </div>
+          {iteration.incomingOutgoing && (
+            <div className={styles.incomingOutgoing}>
+              <span>
+                {`${iteration.incomingOutgoing.incoming}  -> ${iteration.incomingOutgoing.outgoing}`}
+              </span>
+            </div>
+          )}
         </small>
       </header>
       <main>

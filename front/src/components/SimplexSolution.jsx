@@ -3,6 +3,7 @@ import styles from "./styles/SimplexSolution.module.css";
 import { Solution } from "./Solution";
 import { useSolution } from "../hooks/useSolution";
 import { SimplexSensivility } from "./sensivility/SimplexSensivility";
+import { getIncomingAndOutgoingBasicVariables } from "../utils";
 export function SimplexSolution() {
   const { isSolved } = useSolution();
 
@@ -23,7 +24,13 @@ function IterationsSolution() {
   return (
     <main className={styles.container}>
       {iterations.map((iter, index) => {
-        return <Table key={index} iteration={iter} />;
+        const iteration = { ...iter };
+        if (index !== 0 && index !== iterations.length - 1)
+          iteration.incomingOutgoing = getIncomingAndOutgoingBasicVariables(
+            iter.basicas,
+            iterations[index - 1].basicas
+          );
+        return <Table key={index} iteration={iteration} />;
       })}
     </main>
   );
