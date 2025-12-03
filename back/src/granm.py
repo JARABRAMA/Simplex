@@ -39,6 +39,11 @@ class GranM:
         self.A_ext = self.A.copy()
         self.c_ext = np.copy(self.c)
 
+        if self.tipo_obj == "min":
+            self.c_ext *= (
+                -1
+            )  # Si el problema es de minimización entonces se maximiza a -Z.
+
         artificiales = []
         for i, t in enumerate(self.tipo_restr):
             """
@@ -88,11 +93,6 @@ class GranM:
                     f"a{i+1}"
                 )  # Se agrega la variable artificial a una lista auxiliar de variables
                 artificiales.append(f"a{i+1}")
-
-        if self.tipo_obj == "min":
-            self.c_ext *= (
-                -1
-            )  # Si el problema es de minimización entonces se maximiza a -Z.
 
         self.basicas = []
         for i, t in enumerate(self.tipo_restr):
@@ -297,10 +297,7 @@ class GranM:
             solucion[j] = self.b[i]
 
         Z_final = np.dot(self.c, solucion[: len(self.c)])
-        if (
-            self.tipo_obj == "min"
-        ):  # Si el problema es de minimización entonces se debe revertir el signo para recuperar los coeficientes originales: -(-Z)
-            Z_final *= -1
+
 
         # Graficación automática si el problema es de dos variables
         if len(self.c) == 2:
