@@ -133,7 +133,7 @@ class GranM:
         Imprime en consola la tabla de la iteración con tabulate
         """
         print(f"\n{'='*60}")
-        print(f" Iteración {estado['iteracion']} → {estado['descripcion']}")
+        print(f" Iteración {estado['iteracion']} -> {estado['descripcion']}")
         print(f" Variables básicas: {', '.join(estado['basicas'])}")
         print(
             tabulate(estado["tabla"], headers="keys", tablefmt="github", floatfmt=".3f")
@@ -229,8 +229,15 @@ class GranM:
         plt.title("Método gráfico aplicado automáticamente (solo 2 variables)")
         plt.grid(True)
         plt.legend()
-        plt.savefig("../front/public/images/grafica.png")
-        return "../../public/images/grafica.png"
+        output_path = "../front/public/images/grafica.png"
+        try:
+            # Ensure directory exists
+            Path(output_path).parent.mkdir(parents=True, exist_ok=True)
+            plt.savefig(output_path)
+            return "../../public/images/grafica.png"
+        except Exception as e:
+            print(f"No se pudo guardar la gráfica: {e}")
+            return None
 
     def resolver(self):
         """
