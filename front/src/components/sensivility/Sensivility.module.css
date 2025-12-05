@@ -1,0 +1,43 @@
+.sensivilityCard {
+  font-family: "JetBrains Mono", monospace;
+  padding: 1.5rem;
+  background-color: #dbdbdb;
+  color: var(--bg-color);
+  border-radius: 8px;
+}
+
+.sensivilityCard .table {
+  display: flex;
+  gap: 1rem;
+}
+
+.column {
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.column span:first-child {
+  font-family: "Inter", sans-serif;
+  background: var(--bg-color);
+  color: #dbdbdb;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.sensivilityCard h4 {
+  font-family: "Inter", sans-serif;
+  background: var(--primary-color);
+  color: #dbdbdb;
+  padding: 8px;
+  border-radius: 5px;
+  width: fit-content;
+  margin: 0 0 1rem 0;
+}
+
+.tablesSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}

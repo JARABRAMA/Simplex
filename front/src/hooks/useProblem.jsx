@@ -1,21 +1,29 @@
-import { SimplexSolution } from "./SimplexSolution";
-import { SimplexProblem } from "./SimplexProblem";
-import { SimplexDialog } from "./LoadingDialog";
-import { useProblem } from "../hooks/useProblem";
+const mapType = {
+  max: "max",
+  min: "min",
+};
+import { useRef, useState } from "react";
+import matrixStyles from "../components/styles/Matrix.module.css";
+import objetiveStyles from "../components/styles/Coeficients.module.css";
+import { chunkArray } from "../utils";
+import { useSolution } from "./useSolution";
+import { useProblemStore } from "./useProblemStore";
 
-export function Simplex() {
+export function useProblem() {
   const [variables, setVariables] = useState(2);
   const [equations, setEquations] = useState(2);
-  const [solution, setSolution] = useState(null);
   const [type, setType] = useState(mapType.max);
   const refDialog = useRef();
   const [error, setError] = useState(null);
+
+  const { setProblem } = useProblemStore();
+
+  const { setSolution } = useSolution();
 
   const refMatrix = useRef();
   const refObjetiveFunction = useRef();
 
   const apiUrl = import.meta.env.VITE_API_URL;
-  console.log("api url: ", apiUrl);
 
   const handleGetMatrixInputs = async () => {
     refDialog.current.showModal();
@@ -49,6 +57,8 @@ export function Simplex() {
       type: type,
     };
 
+    setProblem(problem);
+
     console.log("[Simplex Problem] problem: ", problem);
 
     try {
@@ -78,31 +88,18 @@ export function Simplex() {
     setType(type == mapType.max ? mapType.min : mapType.max);
   };
 
-  return (
-    <>
-      <SimplexProblem
-        equations={equations}
-        setEquations={(equations) => setEquations(equations)}
-        setVariables={(variables) => setVariables(variables)}
-        variables={variables}
-        refMatrix={refMatrix}
-        refObjetiveFunction={refObjetiveFunction}
-        handleGetMatrixInputs={handleGetMatrixInputs}
-        handleToggleType={handleToggleType}
-        type={type}
-      />
-
-      <SimplexSolution />
-
-      <dialog ref={refDialog}>
-        <SimplexDialog
-          error={error}
-          handleClearError={() => {
-            refDialog.current.close();
-            setError(null);
-          }}
-        />
-      </dialog>
-    </>
-  );
+  return {
+    setEquations,
+    setVariables,
+    equations,
+    variables,
+    refMatrix,
+    refDialog,
+    refObjetiveFunction,
+    handleGetMatrixInputs,
+    handleToggleType,
+    type,
+    error,
+    setError,
+  };
 }
