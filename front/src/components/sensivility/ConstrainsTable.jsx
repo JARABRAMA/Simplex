@@ -20,7 +20,7 @@ export function ConstrainsTable() {
           )}
         />
 
-        <UsedResourcesColumn usedReources={usedReources} />
+        {/* <UsedResourcesColumn usedReources={usedReources} /> */}
         <AllowableIncreaseColumn
           sensivility={sensivility}
           restrictions={restrictions}
@@ -29,7 +29,7 @@ export function ConstrainsTable() {
           sensivility={sensivility}
           restrictions={restrictions}
         />
-
+        {/* 
         <MaxValuesColumn
           restrictions={restrictions}
           sensivility={sensivility}
@@ -40,7 +40,7 @@ export function ConstrainsTable() {
           restrictions={restrictions}
           sensivility={sensivility}
           usedReources={usedReources}
-        />
+        /> */}
       </div>
     </article>
   );
